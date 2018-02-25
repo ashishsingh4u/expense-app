@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Mine new expense block
+  form.form-horizontal(id='signup-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='index') Index
+      .col-sm-7
+        input.form-control(type='index', name='index', id='index', placeholder='Index', autofocus, required)
+    .form-group
+      label.col-sm-3.control-label(for='previousHash') Previous Hash
+      .col-sm-7
+        input.form-control(type='previousHash', name='previousHash', id='previousHash', placeholder='Previous Hash', required)
+    .form-group
+      label.col-sm-3.control-label(for='timestamp') Timestamp
+      .col-sm-7
+        input.form-control(type='timestamp', name='timestamp', id='timestamp', placeholder='Timestamp', required)
+    .form-group
+      label.col-sm-3.control-label(for='data') Expense Data
+      .col-sm-7
+        input.form-control(type='data', name='data', id='data', placeholder='Data', required)
+    .form-group
+      label.col-sm-3.control-label(for='hash') Hash
+      .col-sm-7
+        input.form-control(type='hash', name='hash', id='hash', placeholder='Hash', required)
+    .form-group
+      label.col-sm-3.control-label(for='nonce') Nonce
+      .col-sm-7
+        input.form-control(type='nonce', name='nonce', id='nonce', placeholder='Nonce', required)                        
+    .form-group
+      .col-sm-offset-3.col-sm-7
+        button.btn.btn-success(type='submit')
+          i.fa.fa-btc
+          | Add Expense

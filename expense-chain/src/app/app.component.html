@@ -1,0 +1,63 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Expense Chain</span>
+
+    <span class="example-spacer"></span>
+
+    <button mat-button>About</button>
+    <button mat-button>Add Block</button>
+    <button mat-button>Show Chain</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<br>
+<mat-card>
+  <mat-form-field>
+    <input matInput [(ngModel)]="index" placeholder="Index">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="previousHash" placeholder="Previous Hash">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="timestamp" placeholder="Timestamp">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data" placeholder="Data">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="hash" placeholder="Hash">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nonce" placeholder="Nonce">
+  </mat-form-field>
+  <br>
+
+  <button mat-raised-button (click)="mineBlock()">Add block</button>
+  <button mat-raised-button (click)="getBlocks()">Get block</button>
+  <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+</mat-card>
+
+<div *ngIf="blocks" class="layout-column">
+  <mat-card *ngFor="let block of blocks" class="flex-lg-20" (click)="OnMatCardClickEvent(block)">
+
+    <mat-card-title>Index: {{block.index}}</mat-card-title>
+    <mat-card-subtitle>Nonce: {{block.nonce}}</mat-card-subtitle>
+    <mat-card-header class="flex-lg-20">
+      <h2>Data: {{block.data}}</h2>
+      <br>
+    </mat-card-header>
+    <mat-card-content class="flex-lg-20">
+      <h2> </h2>
+      <br>Previous Hash: {{block.previousHash}}
+    </mat-card-content>
+
+    <mat-card-content align="bottom" class="flex-lg-20">
+      <div>Hash: {{block.hash}}</div>
+    </mat-card-content>
+    <mat-card-footer>{{block.timestamp}}</mat-card-footer>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>

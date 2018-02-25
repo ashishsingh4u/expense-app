@@ -1,0 +1,34 @@
+version: "2"
+services:
+  mongo:
+    container_name: expense-mongo
+    image: mongo
+    volumes:
+      - /Users/ashishsingh/data:/data/db
+    ports:
+      - "27017:27017"
+  app:
+    container_name: expense-node-service
+    restart: always
+    build: expense-node-service
+    volumes:
+      - ./expense-node-service:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - HOST=mongo
+    depends_on:
+      - mongo
+  webapp:
+    container_name: expense-chain
+    restart: always
+    build: expense-chain
+    # volumes:
+    #   - ./expense-chain:/app
+    ports:
+      - "4200:4200"
+    environment:
+      - rest=app
+    depends_on:
+      - app
+      - mongo
