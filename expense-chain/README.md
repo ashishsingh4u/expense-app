@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
 
-[![Build Status](https://travis-ci.org/ashishsingh4u/expense-chain.svg?branch=master)](https://travis-ci.org/ashishsingh4u/expense-chain)
+[![Build Status](https://travis-ci.org/ashishsingh4u/expense-app.svg?branch=master)](https://travis-ci.org/ashishsingh4u/expense-app)
 
 ## Development server
 
