@@ -45,9 +45,9 @@ export class AppComponent implements OnInit {
       const grid = new Map([
         ['xs', 1],
         ['sm', 2],
-        ['md', 2],
-        ['lg', 3],
-        ['xl', 3]
+        ['md', 3],
+        ['lg', 4],
+        ['xl', 5]
       ]);
       let start: number;
       grid.forEach((cols, mqAlias) => {
