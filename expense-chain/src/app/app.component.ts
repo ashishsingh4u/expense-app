@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { Block, BlockChain } from './block.helper';
+import { Observable } from 'rxjs/Observable';
+import { ObservableMedia } from '@angular/flex-layout';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/startWith';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +22,9 @@ export class AppComponent implements OnInit {
   nonce = 0;
   blocks: Block[] = [];
   blockChain: BlockChain = new BlockChain();
+  public cols: Observable<number>;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private observableMedia: ObservableMedia) {
     const block: Block = this.blockChain.getLatestBlock();
     this.index = block.index;
     this.previousHash = block.hash;
@@ -37,6 +42,23 @@ export class AppComponent implements OnInit {
           this.blocks = blocks;
         }
       );
+      const grid = new Map([
+        ['xs', 1],
+        ['sm', 2],
+        ['md', 2],
+        ['lg', 3],
+        ['xl', 3]
+      ]);
+      let start: number;
+      grid.forEach((cols, mqAlias) => {
+        if (this.observableMedia.isActive(mqAlias)) {
+          start = cols;
+        }
+      });
+      this.cols = this.observableMedia.asObservable()
+        .map(change => {
+          return grid.get(change.mqAlias);
+        }).startWith(start);
   }
 
   mineBlock() {

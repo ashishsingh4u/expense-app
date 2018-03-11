@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,7 +19,8 @@ describe('AppComponent', () => {
         BrowserAnimationsModule,
         MaterialModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        FlexLayoutModule
       ],
       declarations: [
         AppComponent

@@ -38,12 +38,13 @@
 
 <div *ngIf="blocks" class="layout-column">
   <mat-card>
-    <mat-grid-list cols="8" rowHeight="100px">
-      <mat-grid-tile *ngFor="let block of blocks" [colspan]="2" [rowspan]="2">
+    <mat-grid-list [cols]="cols | async" rowHeight="100px">
+      <mat-grid-tile *ngFor="let block of blocks" [rowspan]="2"> 
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{block.data}}</mat-card-title>
             <mat-card-subtitle>{{block.nonce}}</mat-card-subtitle>
+            <div mat-card-avatar class="example-header-image"></div>
           </mat-card-header>
           <mat-card-content>
             {{block.data}}
