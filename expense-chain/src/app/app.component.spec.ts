@@ -5,10 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { FormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
+import { HomeComponent } from './home/home.component';
+import { RateComponent } from './rate/rate.component';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ActivatedRoute } from '@angular/router';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,12 +21,14 @@ describe('AppComponent', () => {
         AppRoutingModule,
         BrowserAnimationsModule,
         MaterialModule,
+        BrowserAnimationsModule,
+        MaterialModule,
         FormsModule,
         HttpModule,
         FlexLayoutModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, HomeComponent, RateComponent
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue: '/' }

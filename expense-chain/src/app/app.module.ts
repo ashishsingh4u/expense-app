@@ -10,11 +10,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ApiService } from './api.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RateComponent } from './rate/rate.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
