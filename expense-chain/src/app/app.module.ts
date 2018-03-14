@@ -12,7 +12,7 @@ import { ApiService } from './api.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RateComponent } from './rate/rate.component';
 import { HomeComponent } from './home/home.component';
-
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -32,4 +32,8 @@ import { HomeComponent } from './home/home.component';
   providers: [ApiService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(overlayContainer: OverlayContainer) {
+    overlayContainer.getContainerElement().classList.add('custom-theme');
+  }
+}
